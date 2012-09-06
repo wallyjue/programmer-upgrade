@@ -2,54 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "data.h"
-/*
-void DListFindNode();
-void DListAddNode(NodeList nodelist, Node node);
-void DListDelNode();
-
-void DListTraverse(NodeList nodelist);
-*/
-
-void print_index( Node* node)
-{
-	printf("index:%d\n", node->index);
-}
-
-void *print_index_ptr( Node* node)
-{
-	printf("(ptr)index:%d\n", node->index);
-}
-
-static int DListAddNode( NodeList* nodelist, Node* node)
-{
-	if( nodelist == NULL)
-	{
-		return RET_FAIL;
-	}
-	
-	if( nodelist->headnode == NULL )
-	{
-		nodelist->headnode = node;
-	}
-	else
-	{
-		nodelist->tailnode->nextnode = node;
-		node->prevnode = nodelist->tailnode;
-	}
-	
-	nodelist->tailnode = node;
-	return RET_OK;
-}
-
-void DListTraverse(NodeList* nodelist, DListPrintNodeInt print_node_index, void* ctx)
-{
-	Node* cur_node = nodelist->headnode;
-	while( cur_node != NULL)
-	{
-		print_node_index( cur_node );
-		cur_node = cur_node->nextnode;
-	}
-}
 
 Node* InitNode(int index)
 {
@@ -74,19 +26,78 @@ void FreeNode( Node* node)
 	node = NULL;
 }
 
+void print_index( Node* node)
+{
+	printf("index:%d\n", node->index);
+}
+
+void SumIndex(Node* node, void* ctx)
+{
+	long long* ret = ctx;
+	*ret += node->index;
+}
+
+void FindMax( Node* node, void* ctx)
+{
+	long long* ret = ctx;
+	if( node->index > *ret)
+	{
+		*ret = node->index;
+	}
+}
+
+static int DListAddNode( NodeList* nodelist, Node* node)
+{
+	if( nodelist == NULL)
+	{
+		return RET_FAIL;
+	}
+	
+	if( nodelist->headnode == NULL )
+	{
+		nodelist->headnode = node;
+	}
+	else
+	{
+		nodelist->tailnode->nextnode = node;
+		node->prevnode = nodelist->tailnode;
+	}
+	
+	nodelist->tailnode = node;
+	return RET_OK;
+}
+
+void DListTraverse(NodeList* nodelist, DListVisitNode visit_func, void* ctx)
+{
+	Node* cur_node = nodelist->headnode;
+	while( cur_node != NULL)
+	{
+		visit_func( cur_node, ctx );
+		cur_node = cur_node->nextnode;
+	}
+}
+
+
+
 int main(int argc, char** argv)
 {
 	NodeList* nodelist = (NodeList*) malloc( sizeof( NodeList ));
 	
-	Node* node = InitNode( 1 );
-	DListAddNode( nodelist, node );
+	Node* node1 = InitNode( 1 );
+	DListAddNode( nodelist, node1 );
+	Node* node2 = InitNode( 2 );
+	DListAddNode( nodelist, node2 );
+	Node* node3 = InitNode( 3 );
+	DListAddNode( nodelist, node3 );
 	
-	//DListTraverse( nodelist, print_index, NULL );
 	
-	DListTraverse( nodelist, print_index_ptr, NULL );
+	long long result = 0;
+	DListTraverse( nodelist, FindMax, &result );
+	printf("result:%lld\n", result);
 	
-	FreeNode( node );
-	
+	FreeNode( node1 );
+	FreeNode( node2 );
+	FreeNode( node3 );
 	free( nodelist);
 	nodelist = NULL;
 	return 0;
