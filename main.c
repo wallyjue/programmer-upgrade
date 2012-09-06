@@ -10,9 +10,14 @@ void DListDelNode();
 void DListTraverse(NodeList nodelist);
 */
 
-static void print_index( Node* node)
+void print_index( Node* node)
 {
 	printf("index:%d\n", node->index);
+}
+
+void *print_index_ptr( Node* node)
+{
+	printf("(ptr)index:%d\n", node->index);
 }
 
 static int DListAddNode( NodeList* nodelist, Node* node)
@@ -55,6 +60,11 @@ Node* InitNode(int index)
 
 void FreeNode( Node* node)
 {
+	if( node == NULL)
+	{
+		return ;
+	}
+	
 	if( node->content != NULL)
 	{
 		free( node->content );
@@ -71,7 +81,9 @@ int main(int argc, char** argv)
 	Node* node = InitNode( 1 );
 	DListAddNode( nodelist, node );
 	
-	DListTraverse( nodelist, print_index, NULL );
+	//DListTraverse( nodelist, print_index, NULL );
+	
+	DListTraverse( nodelist, print_index_ptr, NULL );
 	
 	FreeNode( node );
 	
