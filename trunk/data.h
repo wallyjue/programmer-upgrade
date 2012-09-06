@@ -17,8 +17,8 @@ struct _NodeList{
 //typedef int (*DListAddNode) (NodeList* , Node );
 //typedef void (*DListTraverse) (NodeList*);
 
-typedef void (*DListPrintNodeInt) (Node*);
-void DListTraverse( NodeList* , DListPrintNodeInt , void*);
+typedef void (*DListVisitNode) (Node*, void*);
+void DListTraverse( NodeList* , DListVisitNode , void*);
 
 #define RET_OK 1
 #define RET_FAIL 0
