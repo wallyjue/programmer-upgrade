@@ -15,9 +15,6 @@ struct _NodeList{
 	Node* tailnode;
 };
 
-//typedef int (*DListAddNode) (NodeList* , Node );
-//typedef void (*DListTraverse) (NodeList*);
-
 typedef void (*DListVisitNode) (Node*, void*);
 void DListTraverse( NodeList* , DListVisitNode , void*);
 
