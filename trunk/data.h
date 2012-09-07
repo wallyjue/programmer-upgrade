@@ -4,6 +4,7 @@ struct _Node
 	int index;
 	int number;
 	char* content;
+	int content_len;
 	Node *prevnode;
 	Node *nextnode;
 };

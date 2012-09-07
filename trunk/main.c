@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "data.h"
 
-Node* InitNode(int index)
+Node* InitNode(int index, char* content)
 {
 	Node* node = (Node*) malloc( sizeof( Node));
 	node->index = index;
+	node->content = (char*) malloc( sizeof(char) * strlen(content));
+	node->content_len = strlen(content);
+	strncpy( node->content, content, strlen(content));
 	return node;
 }
 
@@ -26,9 +30,24 @@ void FreeNode( Node* node)
 	node = NULL;
 }
 
-void print_index( Node* node)
+void print_index( Node* node, void* ctx)
 {
 	printf("index:%d\n", node->index);
+}
+
+void print_content( Node* node, void* ctx)
+{
+	printf("content:%s\n", node->content);
+}
+
+void content_to_upper(Node* node, void* ctx)
+{
+	int cnt = 0;
+	for( cnt = 0; cnt < strlen(node->content); cnt++)
+	{
+		if( islower( node->content[cnt] ))
+			node->content[cnt] -= 32;
+	}
 }
 
 void SumIndex(Node* node, void* ctx)
@@ -83,17 +102,18 @@ int main(int argc, char** argv)
 {
 	NodeList* nodelist = (NodeList*) malloc( sizeof( NodeList ));
 	
-	Node* node1 = InitNode( 1 );
+	Node* node1 = InitNode( 1, "chaojue" );
 	DListAddNode( nodelist, node1 );
-	Node* node2 = InitNode( 2 );
+	Node* node2 = InitNode( 2, "chang" );
 	DListAddNode( nodelist, node2 );
-	Node* node3 = InitNode( 3 );
+	Node* node3 = InitNode( 3, "kakasi" );
 	DListAddNode( nodelist, node3 );
 	
 	
-	long long result = 0;
-	DListTraverse( nodelist, FindMax, &result );
-	printf("result:%lld\n", result);
+	
+	DListTraverse( nodelist, print_content, NULL );
+	DListTraverse( nodelist, content_to_upper, NULL );
+	DListTraverse( nodelist, print_content, NULL );
 	
 	FreeNode( node1 );
 	FreeNode( node2 );
