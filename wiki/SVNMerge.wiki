@@ -1,0 +1,8 @@
+#labels SVN
+假設有一版本N是正常的, 但不小心commit了錯的code, 版號變成N+1, 此時想要回復成N版時, 可以用svn merge的指令
+
+svn merge -r N+1:N path/filename.txt
+
+即可回復到N版的code
+
+此時再commit到 svn server, 即可將錯誤的code覆蓋過去
