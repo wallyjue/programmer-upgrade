@@ -3,7 +3,12 @@
 #include <string.h>
 #include <ctype.h>
 #include "data.h"
-
+/*
+#include <CUnit/CUnit.h>
+#include "CUnit/Basic.h"
+#include "CUnit/Console.h"
+#include "CUnit/Automated.h"
+*/
 Node* InitNode(int index, char* content)
 {
 	Node* node = (Node*) malloc( sizeof( Node));
@@ -100,6 +105,10 @@ void DListTraverse(NodeList* nodelist, DListVisitNode visit_func, void* ctx)
 
 int main(int argc, char** argv)
 {
+	//CU_pSuite pSuite = NULL;
+	//if (CUE_SUCCESS != CU_initialize_registry())
+		//return CU_get_error();
+		
 	NodeList* nodelist = (NodeList*) malloc( sizeof( NodeList ));
 	
 	Node* node1 = InitNode( 1, "chaojue" );
@@ -120,5 +129,6 @@ int main(int argc, char** argv)
 	FreeNode( node3 );
 	free( nodelist);
 	nodelist = NULL;
+	//CU_cleanup_registry();
 	return 0;
 }
