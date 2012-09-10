@@ -1,10 +1,6 @@
 #ifndef __IF_DARRAY_H__
 #define __IF_DARRAY_H__
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #define RET_OK 1
 #define RET_FAIL 0
 /*
