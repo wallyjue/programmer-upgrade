@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+struct _DArrayElement
+{
+	char* data;
+};
+typedef struct _DArrayElement DArrayElement;
+
+struct _DArray
+{
+	size_t size;
+	DArrayElement* element;
+};
+typedef struct _DArray DArray;
+
+typedef int Ret;
+
+typedef void (*DArrayVisitFunc) (DArray*, void*);
+typedef void (*DArrayCompareFunc) (DArray*, void*);
+typedef void (*DArrayDestoryFunc) (DArray*, void*);
+
+
+DArray* darray_create(DArrayDestoryFunc data_destory, void* ctx);
+Ret darray_insert(DArray* thiz, size_t index, void* ctx);
+Ret darray_prepend( DArray* thiz, size_t index, void* ctx);
+Ret darray_append( DArray* thiz, size_t index, void* ctx);
+Ret darray_delete( DArray* thiz, size_t index, void* ctx);
+Ret darray_get_by_index( DArray* thiz, size_t index, void** data);
+Ret darray_set_by_index( DArray* thiz, size_t index, void* data);
+size_t darray_length( DArray* thiz);
+int darray_find( DArray* thiz, DArrayCompareFunc cmp, void* ctx);
+Ret darray_for_each( DArray* thiz, DArrayVisitFunc visit, void* ctx); 
+
+void darray_destory( DArray* thiz);
