@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<node name="/embeddedvc/videophone/sip">
+	<interface name="embeddedvc.videophone.sip">
+		<method name="sip_make_registration">
+			<arg name="URI" type="s" direction="in" />
+			<arg name="proxy" type="s" direction="in" />
+			<arg name="realm" type="s" direction="in" />
+			<arg name="sipid" type="s" direction="in" />
+			<arg name="name" type="s" direction="in" />
+			<arg name="psw" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_make_call">
+			<arg name="mode" type="u" direction="in" />
+			<arg name="addr" type="s" direction="in" />
+			<arg name="audio_source" type="i" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_set_call_rejection">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_hold_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_resume_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_request_switch">
+			<arg name="mode" type="i" direction="in" />
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_confirm_switch">
+			<arg name="accept" type="i" direction="in" />
+			<arg name="mode" type="i" direction="in" />
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_start_conference_call">
+			<arg name="addr1" type="s" direction="in" />
+			<arg name="addr2" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_start_video_conference_call">
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_make_video_conference_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_video_conference_hold_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_video_conference_resume_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_terminate_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_cancel_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_answer_call">
+			<arg name="mode" type="i" direction="in" />
+			<arg name="addr" type="s" direction="in" />
+			<arg name="audio_source" type="i" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_reject_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_set_dnd">
+			<arg name="IsDND" type="b" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_set_call_forwarding">
+			<arg name="mode" type="i" direction="in" />
+			<arg name="type" type="i" direction="in" />
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_set_call_waiting">
+			<arg name="IsWait" type="b" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_swap_waiting_call">
+			<arg name="active_addr" type="s" direction="in" />
+			<arg name="hold_addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_unattend_transfer">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="target_addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_attend_transfer">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="target_addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_forward_call">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="target_addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_set_invite_progress">
+			<arg name="inviteProgress" type="b" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_get_seesion">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_transmit_dtmf">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="event" type="i" direction="in" />
+			<arg name="duration" type="i" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_info_dtmf">
+			<arg name="addr" type="s" direction="in" />
+			<arg name="event" type="i" direction="in" />
+			<arg name="duration" type="i" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_get_message">
+			<arg name="message_type" type="u" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_request_idr">
+			<arg name="session" type="i" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_restart">
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_register">
+			<arg name="result" type="i" direction="out" />
+		</method>
+		<method name="sip_set_autoanswer">
+			<arg name="auto_answer" type="b" direction="in" />
+			<arg name="result" type="i" direction="out" />
+		</method>
+	</interface>
+</node>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/embeddedvc/videophone/framework">
+  <interface name="embeddedvc.videophone.framework">
+    <method name="fw_incoming_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="fw_outgoing_identify">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="new_name" type="s" direction="in" />
+		<arg name="new_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_outbound_timeout">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+	</method>
+	<method name="fw_inbound_answer">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_timeout">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_terminate_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_hold_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_resume_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_outbound_hold_call_cancel">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_mute">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="isMute" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_request_switch">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_confirm_switch">
+		<arg name="accept" type="u" direction="in" />
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_outbound_request_switch_cancel">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_request_switch_cancel">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="fw_conference_incoming_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_inbound_conference_resume">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="fw_conference_notify">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="number_of_participant" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_early_dtmf">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_set_message">
+		<arg name="message_type" type="u" direction="in" />
+		<arg name="count" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_register">
+		<arg name="isRegister" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_register_timeout">
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_first_incoming_video_frame">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_set_framebuffer">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="fb" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_set_remote_view_resolution">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="width" type="i" direction="in" />
+		<arg name="height" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_remote_transaction_begin">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_remote_transaction_end">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_set_local_view_resolution">
+		<arg name="width" type="i" direction="in" />
+		<arg name="height" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_local_view_begin">
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_local_view_end">
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_visual_indicator">
+		<arg name="level" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_remote_video_terminate_alert">
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_play_ringbacktone">
+		<arg name="ring" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="cm_accept_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="cm_hold_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="cm_resume_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="cm_swap_call">
+		<arg name="user_name" type="s" direction="in" />
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_receive_test_key">
+		<arg name="key_code" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_stb_res_cb">
+		<arg name="width" type="i" direction="in" />
+		<arg name="height" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_network_detector_cb">
+		<arg name="interface" type="s" direction="in" />
+		<arg name="network_status" type="i" direction="in" />
+		<arg name="ip_changed" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_notify_update_config">
+		<arg name="notify" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_set_product">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="product_type" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+	<method name="fw_event_exception_handle">
+		<arg name="component_type" type="i" direction="in" />
+		<arg name="error_code" type="i" direction="in" />
+		<arg name="action" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="fw_outgoing_transfer">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="new_name" type="s" direction="in" />
+		<arg name="new_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="fw_incoming_transfer">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="new_name" type="s" direction="in" />
+		<arg name="new_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="fw_forward_call">
+		<arg name="phone_number" type="s" direction="in" />
+		<arg name="new_name" type="s" direction="in" />
+		<arg name="new_number" type="s" direction="in" />
+		<arg name="mode" type="u" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+  </interface>
+</node>
