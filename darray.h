@@ -1,27 +1,30 @@
+#ifndef __IF_DARRAY_H__
+#define __IF_DARRAY_H__
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
+#define RET_OK 1
+#define RET_FAIL 0
+/*
 struct _DArrayElement
 {
 	char* data;
 };
 typedef struct _DArrayElement DArrayElement;
-
+*/
 struct _DArray
 {
 	size_t size;
-	DArrayElement* element;
+	void* element;
 };
 typedef struct _DArray DArray;
 
-typedef int Ret;
-
 typedef void (*DArrayVisitFunc) (DArray*, void*);
 typedef void (*DArrayCompareFunc) (DArray*, void*);
-typedef void (*DArrayDestoryFunc) (DArray*, void*);
-
+typedef void (*DArrayDestoryFunc) (DArray*);
+typedef int Ret;
 
 DArray* darray_create(DArrayDestoryFunc data_destory, void* ctx);
 Ret darray_insert(DArray* thiz, size_t index, void* ctx);
@@ -34,4 +37,6 @@ size_t darray_length( DArray* thiz);
 int darray_find( DArray* thiz, DArrayCompareFunc cmp, void* ctx);
 Ret darray_for_each( DArray* thiz, DArrayVisitFunc visit, void* ctx); 
 
-void darray_destory( DArray* thiz);
+Ret darray_destory( DArray* thiz);
+
+#endif 
