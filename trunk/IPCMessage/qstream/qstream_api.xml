@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/embeddedvc/videophone/qstream">
+  <interface name="embeddedvc.videophone.qstream">
+  	<server_prefix name="embeddedvc" />
+    <method name="qstream_init_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_q_product">
+        <arg name="call_id" type="i" direction="in" />
+	 <arg name="isQProduct" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_call_remote_ip">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="type" type="i" direction="in" />
+	<arg name="dest_ip" type="s" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_start_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_terminate_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_invite_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="mode" type="i" direction="in" />
+        <arg name="laudio_port" type="i" direction="in" />
+        <arg name="lvideo_port" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_abort_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="mode" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_reject_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="mode" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_init_early_media">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_start_early_media">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_terminate_early_media">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_hold_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_resume_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_call_local_audio_port">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="audio_port" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_call_local_video_port">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="video_port" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_call_remote_audio_port">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="audio_port" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_call_remote_video_port">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="video_port" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_audio_codec">
+        <arg name="call_id" type="i" direction="in" />
+	<arg name="audio_codec_type" type="i" direction="in" />
+	<arg name="audio_payload" type="s" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_audio_codec_g7221_parameters">
+        <arg name="call_id" type="i" direction="in" />
+	<arg name="sample_rate" type="i" direction="in" />
+	<arg name="bit_rate" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method> 
+    <method name="qstream_set_video_codec">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="video_codec_type" type="i" direction="in" />
+	<arg name="video_payload" type="s" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_dtmf_pt">
+		<arg name="call_id" type="i" direction="in" />
+		<arg name="dtmf_pt" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_switch_mode_init">
+        <arg name="call_id" type="i" direction="in" />
+	<arg name="mode" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_switch_mode_start">
+        <arg name="call_id" type="i" direction="in" />
+	<arg name="mode" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_mute">
+        <arg name="mode" type="i" direction="in" />
+        <arg name="IsEnable" type="b" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_mic_source">
+        <arg name="src_type" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_switch_voice_mode">
+        <arg name="mode" type="u" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_set_stream_quality">
+        <arg name="mode" type="u" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_dtmf_transmit_mode">
+	<arg name="call_id" type="i" direction="in" />
+	<arg name="transmit_mode" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_send_dtmf">
+		<arg name="call_id" type="i" direction="in" />
+		<arg name="event" type="i" direction="in" />
+		<arg name="duration" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_send_idr">
+		<arg name="call_id" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_first_incoming_video_frame">
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_snapshot">
+        <arg name="ori_path" type="s" direction="in" />
+        <arg name="resize_path" type="s" direction="in" />
+        <arg name="pos_x" type="i" direction="in" />
+        <arg name="pos_y" type="i" direction="in" />
+        <arg name="width" type="i" direction="in" />
+        <arg name="height" type="i" direction="in" />
+        <arg name="scale" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_add_smart_phone">
+	<arg name="index" type="i" direction="in" />
+	<arg name="ip_address" type="s" direction="in" />
+	<arg name="remote_port" type="i" direction="in" />
+	<arg name="local_port" type="i" direction="out" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_remove_smart_phone">
+	<arg name="index" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_select_handset">
+	<arg name="index" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <!-- Debug Tool -->
+    <method name="qstream_check_streaming_mapping_tables">
+        <arg name="result" type="i" direction="out" />
+    </method>
+    <method name="qstream_print_streaming_mapping_table">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="result" type="i" direction="out" />
+	</method>
+	<method name="qstream_set_call">
+        <arg name="call_id" type="i" direction="in" />
+        <arg name="parameters" type="ay" direction="in" />
+        <arg name="result" type="i" direction="out" />
+	</method>
+	<method name="qstream_conference_mode_start">
+		<arg name="result" type="i" direction="out" />
+	</method>
+	<method name="qstream_conference_mode_stop">
+		<arg name="result" type="i" direction="out" />
+	</method>
+	<method name="qstream_check_video_resource_from_fw">
+	</method>
+	<method name="qstream_check_video_resource_from_sip">
+	</method>
+	<method name="qstream_play_tone">
+		<arg name="tone_type" type="i" direction="in" />
+		<arg name="result" type="i" direction="out" />
+	</method>
+	<method name="qstream_set_camera_zoom">
+		<arg name="ABSOLUTE" type="l" direction="in" />
+	</method>
+	<method name="qstream_set_camera_pan_tilt">
+		<arg name="pan" type="sh" direction="in" />
+		<arg name="tilt" type="sh" direction="in" />
+	</method>
+  </interface>
+</node>

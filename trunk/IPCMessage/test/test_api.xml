@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="test">
+	<interface name="test">
+		<method name="test_function1">
+			<arg name="a" type="i" direction="in" />
+			<arg name="b" type="i" direction="in" />
+		</method>
+		<method name="test_function2">
+			<arg name="a" type="i" direction="in" />
+			<arg name="b" type="i" direction="out" />
+			<arg name="c" type="u" direction="in" />
+			<arg name="d" type="b" direction="in" />
+			<arg name="e" type="s" direction="in" />
+			<arg name="f" type="ay" direction="in" />
+			<arg name="g" type="sh" direction="in" />
+			<arg name="h" type="l" direction="in" />
+		</method>
+	</interface>
+</node>
