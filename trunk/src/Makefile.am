@@ -1,2 +1,2 @@
-bin_PROGRAM=main
+bin_PROGRAMS=main
 main_SOURCES=main.c dlist.c darray.c
