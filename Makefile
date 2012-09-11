@@ -3,8 +3,13 @@ CC = gcc
 C_FLAGS= -g -O2 -Wall
 # -lcunit -L$(LD_LIBRARY_PATH)
 
-main: main.c dlist.c darray.c
-	$(CC) main.c dlist.c darray.c $(C_FLAGS) -o binary
+OBJ = main.o dlist.o darray.o
+
+%.o: %.c
+	$(CC) $(C_FLAGS) -c -o $@ $<
+
+main: $(OBJ)
+	$(CC) $(C_FLAGS) $(OBJ) -o $@
 	
 clean:
 	rm *.o;rm binary

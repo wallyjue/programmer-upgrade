@@ -7,7 +7,7 @@
 
 void print_content_char(DArray* darray, void* data)
 {
-	printf("%c\n", darray->element);
+	printf("%s %d\n", (char*)data, data);
 }
 
 Ret darray_for_each( DArray* darray, DArrayVisitFunc function, void* data)
@@ -18,7 +18,7 @@ Ret darray_for_each( DArray* darray, DArrayVisitFunc function, void* data)
 	size_t array_size = 0;
 	for( array_size = 0; array_size < darray->size ; array_size++)
 	{
-		function( darray, data);
+		function( darray, darray->element + array_size);
 	}
 	return RET_OK;
 }
@@ -31,8 +31,8 @@ Ret darray_append( DArray* thiz, size_t index, void* data)
 	}	
 	
 	void* buffer = (void*) malloc( index * sizeof(void*) + (thiz->size) * sizeof(void*));
-	mempcpy( buffer, thiz->element, thiz->size);
-	mempcpy( buffer + sizeof(size_t)*(thiz->size), data, index*sizeof(size_t));
+	memcpy( buffer, thiz->element, thiz->size);
+	memcpy( buffer + sizeof(size_t)*(thiz->size), data, index*sizeof(size_t));
 	thiz->size += index;
 	free( data);
 	data = NULL;
@@ -66,18 +66,4 @@ DArray* darray_create( DArrayDestoryFunc darray_destroy, void* ctx)
 	return darray;
 }
 
-/*
-Ret darray_append( DArray* thiz, size_t index, void* ctx)
-{
-	if( thiz == NULL)
-		return RET_FAIL;
-		
-	thiz->element = (DArray*) realloc( thiz->element, thiz->size*sizeof(void*) + index*sizeof(void*));
-	thiz->size += index*sizeof(void*);
-	if( thiz == NULL )
-	{
-		return RET_FAIL;
-	}
-	return RET_OK;
-}
-*/
+

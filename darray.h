@@ -1,6 +1,6 @@
 #ifndef __IF_DARRAY_H__
 #define __IF_DARRAY_H__
-
+#define _GNU_SOURCE 
 #define RET_OK 1
 #define RET_FAIL 0
 /*
@@ -34,5 +34,8 @@ int darray_find( DArray* thiz, DArrayCompareFunc cmp, void* ctx);
 Ret darray_for_each( DArray* thiz, DArrayVisitFunc visit, void* ctx); 
 
 Ret darray_destory( DArray* thiz);
+
+
+void print_content_char(DArray* darray, void* data);
 
 #endif 
