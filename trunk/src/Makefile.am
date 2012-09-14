@@ -1,2 +1,10 @@
 bin_PROGRAMS=main
-main_SOURCES=main.c dlist.c darray.c
+main_SOURCES=main.c dlist.c darray.c dlist.h darray.h
+main_LDFLAGS = -lpthread -lcunit
+main_CFLAGS = $(AM_CFLAGS)
+lib_LTLIBRARIES=libtest.la
+testdir=$(includedir)/libtest
+libtest_la_SOURCES=main.c dlist.c darray.c dlist.h darray.h
+libtest_la_LDFLAGS = -lpthread lcunit
+test_HEADERS=dlist.h darray.h
+ACLOCAL_AMFLAGS = -I m4
